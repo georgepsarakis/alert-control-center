@@ -108,3 +108,6 @@ node_modules/*
 
 # Editor
 .idea
+
+# Local files
+local_settings.py
