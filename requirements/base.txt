@@ -1,7 +1,7 @@
 sqlparse==0.3.0
 django-guardian==1.5.1
 marshmallow==2.19.2
-Django==2.2.1
+Django==2.2.13
 psycopg2==2.8.2
 django-cors-headers==2.5.3
 jmespath==0.9.4
