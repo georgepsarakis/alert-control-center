@@ -111,3 +111,9 @@ node_modules/*
 
 # Local files
 local_settings.py
+NOTES
+
+# Docker
+.docker/mount
+
+

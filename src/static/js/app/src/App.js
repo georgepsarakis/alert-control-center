@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 
 // Material UI CSS
 import Container from 'muicss/lib/react/container';
@@ -12,6 +12,8 @@ import Button from 'muicss/lib/react/button';
 
 import TeamList from './components/TeamList';
 import OrganizationList from './components/OrganizationList';
+import IncidentReportForm from './components/IncidentReportForm';
+import IncidentList from './components/IncidentList';
 
 import { login } from './util/Auth';
 
@@ -39,8 +41,14 @@ class App extends React.Component {
               <Tab value="pane-1" label="Organizations" onActive={this.onActive}>
                 <OrganizationList />
               </Tab>
-              <Tab value="pane-2" label="Teams">
+              <Tab value="pane-2" label="Teams" onActive={this.onActive}>
                 <TeamList />
+              </Tab>
+              <Tab value="pane-3" label="Incidents" onActive={this.onActive}>
+                <IncidentList />
+              </Tab>
+              <Tab value="pane-4" label="Incident Reports" onActive={this.onActive}>
+                <IncidentReportForm />
               </Tab>
             </Tabs>
 

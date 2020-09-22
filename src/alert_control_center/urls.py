@@ -20,7 +20,7 @@ from django.conf.urls import include, url
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 
-from alert_control_center.alerts.models.alerts import Team, Alert, Organization
+from alert_control_center.alerts.models.alerts import Team, Alert, Organization, IncidentReport
 
 
 # Serializers define the API representation.
@@ -69,13 +69,27 @@ from rest_framework.authtoken import views
 from alert_control_center.alerts.views.channels.incoming import webhooks
 
 
+class IncidentReportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IncidentReport
+        fields = '__all__'
 
+
+class IncidentReportViewSet(viewsets.ModelViewSet):
+    queryset = IncidentReport.objects.all()
+    serializer_class = IncidentReportSerializer
+
+
+router.register('incident_reports', IncidentReportViewSet)
 
 urlpatterns = [
+    path(r'c/i/<token>',
+         webhooks.GenericAlertHook.as_view(),
+         name='incoming-webhooks'),
     url(r'^', include(router.urls)),
-    path(r'/c/i/<token>/$)', webhooks.GenericAlertHook.as_view()),
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
     url(r'^login/', views.obtain_auth_token),
     path('admin/', admin.site.urls),
+    # url(r'^comments/', include('django_comments.urls')),
 ]

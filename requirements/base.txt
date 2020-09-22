@@ -3,6 +3,9 @@ django-guardian==1.5.1
 marshmallow==2.19.2
 Django==2.2.1
 psycopg2==2.8.2
-
 django-cors-headers==2.5.3
 jmespath==0.9.4
+requests==2.22.0
+django-contrib-comments==1.9.2
+django-comments-xtd==2.6.1
+django-taggit==1.2.0
